@@ -1,0 +1,19 @@
+.btn {
+  padding: 5px 10px;
+  font-size: 22px;
+  background: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.btn:hover {
+  border-radius: 16px;
+  transition: 0.2s ease;
+}
+.btn--submit {
+  border-color: #4fa300;
+}
+.btn--delete {
+  border-color: #c70000;
+}/*# sourceMappingURL=Button.css.map */

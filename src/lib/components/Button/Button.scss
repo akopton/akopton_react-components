@@ -1,0 +1,25 @@
+$green: #4fa300;
+$red: #c70000;
+
+.btn {
+    padding: 5px 10px;
+    font-size: 22px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    transition: .2s ease;
+    cursor: pointer;
+
+    &:hover {
+        border-radius: 16px;
+        transition: .2s ease;
+    }
+
+    &--submit {
+        border-color: $green;
+    }
+
+    &--delete {
+        border-color: $red;
+    }
+}
