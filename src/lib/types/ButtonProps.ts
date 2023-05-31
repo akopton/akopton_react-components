@@ -1,3 +1,11 @@
+import React, {
+  ReactElement,
+  ReactNode,
+} from "react"
+import ts, {
+  JsxElement,
+} from "typescript"
+
 export type ButtonProps = {
   id?: string
   style?: string
@@ -7,7 +15,7 @@ export type ButtonProps = {
     | "reset"
     | undefined
   name?: string
-  label: string
+  label: ReactElement | string
   handleClick: () => void
   cssStyles?: {}
 }
