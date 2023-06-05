@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./App.css"
-import { Button, Input, NavItem, NavList } from "./lib"
+import { Button, Form, Input, NavItem, NavList } from "./lib"
 import { Modal } from "./lib"
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    console.log("siemk")
 
     if (!password)
       setErrors((prevErrors) => ({
@@ -54,28 +55,35 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <Form onSubmit={handleSubmit} submitBtnText={"Send"} submitBtnPos="right">
         <Input
           id="login"
           type="text"
           name="login"
-          placeholder="Login"
           value={login}
           handleChange={handleLogin}
+          placeholder="login"
           error={errors?.login}
         />
         <Input
-          id="password"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          handleChange={handlePassword}
-          error={errors?.password}
-          success={loginConfirmed}
+          id="login"
+          type="text"
+          name="login"
+          value={login}
+          handleChange={handleLogin}
+          placeholder="login"
+          error={errors?.login}
         />
-        <input type="submit" onClick={handleSubmit} />
-      </form>
+        <Input
+          id="login"
+          type="text"
+          name="login"
+          value={login}
+          handleChange={handleLogin}
+          placeholder="login"
+          error={errors?.login}
+        />
+      </Form>
     </div>
   )
 }

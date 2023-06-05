@@ -1,1 +1,32 @@
-.form {}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__submit-btn {
+        padding: 5px 15px;
+        font-size: 22px;
+        background: none;
+        border: 2px solid black;
+        border-radius: 10px;
+        transition: .2s ease;
+        cursor: pointer;
+
+        &:hover {
+            border-radius: 16px;
+            transition: .2s ease;
+        }
+    }
+
+    .btn-left {
+        align-self: flex-start;
+    }
+
+    .btn-center {
+        align-self: center;
+    }
+
+    .btn-right {
+        align-self: flex-end;
+    }
+}
