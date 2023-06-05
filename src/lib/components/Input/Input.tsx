@@ -33,8 +33,12 @@ const Input = ({
         <label htmlFor={name} className="floating-placeholder">
           {placeholder}
         </label>
-        {success && <div className="success-icon">{successIcon}</div>}
-        {error && <div className="error-icon">{errorIcon}</div>}
+        {success && (
+          <div className="success-icon input-status-icon">{successIcon}</div>
+        )}
+        {error && (
+          <div className="error-icon input-status-icon">{errorIcon}</div>
+        )}
       </div>
       {error ? (
         <span className="input-field__error error-line">{error}</span>

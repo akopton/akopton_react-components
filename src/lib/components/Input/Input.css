@@ -78,7 +78,7 @@ input:-webkit-autofill:focus {
   opacity: 0;
   order: 1;
 }
-.input-field__input-wrapper .success-icon {
+.input-field__input-wrapper .input-status-icon {
   position: absolute;
   top: 50%;
   right: 20px;
