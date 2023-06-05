@@ -1,0 +1,21 @@
+.dropdown-wrapper {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: blue;
+  transform: translate(-50%, -50%);
+}
+.dropdown-wrapper .dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px solid red;
+}
+.dropdown-wrapper .dropdown__selected-item {
+  padding: 10px 15px;
+  min-width: 160px;
+  font-size: 20px;
+}
+.dropdown-wrapper .dropdown__list .item.--selected {
+  color: red;
+}/*# sourceMappingURL=Dropdown.css.map */
