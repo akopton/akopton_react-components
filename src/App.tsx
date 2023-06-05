@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./App.css"
-import { Button } from "./lib"
+import { Button, NavList } from "./lib"
 import { Modal } from "./lib"
 
 const DivComponent = () => {
@@ -28,15 +28,22 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <Button
-        id="btn1"
-        label={"send dudes"}
-        type="button"
-        handleClick={handleClick}
-      />
-      {showModal && <Modal closeModal={closeModal} title="" />}
+      <NavList>
+        <div></div>
+        <div></div>
+      </NavList>
     </div>
   )
 }
 
 export default App
+
+{
+  /* <Button
+        id="btn1"
+        label={"send dudes"}
+        type="button"
+        handleClick={handleClick}
+      />
+      {showModal && <Modal closeModal={closeModal} title="" />} */
+}
