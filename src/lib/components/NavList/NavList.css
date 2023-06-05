@@ -1,0 +1,17 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  border: 2px solid red;
+  max-width: 100%;
+}
+.nav-list.--column {
+  flex-direction: column;
+}/*# sourceMappingURL=NavList.css.map */

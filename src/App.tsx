@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./App.css"
-import { Button, NavList } from "./lib"
+import { Button, NavItem, NavList } from "./lib"
 import { Modal } from "./lib"
 
 const DivComponent = () => {
@@ -11,7 +11,7 @@ function App() {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   function handleClick() {
-    setShowModal(true)
+    console.log("eloooo")
   }
 
   function closeModal() {
@@ -29,8 +29,11 @@ function App() {
       }}
     >
       <NavList>
-        <div></div>
-        <div></div>
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
       </NavList>
     </div>
   )

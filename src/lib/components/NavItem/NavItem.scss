@@ -1,0 +1,38 @@
+button {
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+}
+
+.nav-item__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .nav-item {
+        font-size: 20px;
+        padding: 10px 5px;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: red;
+            transition: .3s ease;
+        }
+
+        &:hover {
+            &::before {
+                width: 100%;
+                transition: .3s ease;
+            }
+        }
+    }
+
+}
