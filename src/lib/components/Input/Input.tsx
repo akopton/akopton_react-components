@@ -10,9 +10,10 @@ const Input = ({
   value,
   handleChange,
   error,
-  styles,
   success,
   successIcon,
+  errorIcon,
+  styles,
 }: InputProps) => {
   return (
     <div className="input-field">
@@ -33,6 +34,7 @@ const Input = ({
           {placeholder}
         </label>
         {success && <div className="success-icon">{successIcon}</div>}
+        {error && <div className="error-icon">{errorIcon}</div>}
       </div>
       {error ? (
         <span className="input-field__error error-line">{error}</span>

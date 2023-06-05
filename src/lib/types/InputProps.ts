@@ -1,15 +1,15 @@
-import { ReactElement } from "react"
+import { ReactElement, StyleHTMLAttributes } from "react"
 
 export type InputProps = {
   id: string
   type: string
   name: string
   placeholder?: string
-  value?: string
+  value: string
   handleChange: (e: React.FormEvent<HTMLInputElement>) => void
   error?: string
   success?: boolean
   successIcon?: ReactElement
   errorIcon?: ReactElement
-  styles?: {}
+  styles?: React.CSSProperties
 }
