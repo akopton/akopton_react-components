@@ -1,0 +1,18 @@
+input {
+    all: unset;
+}
+
+.input {
+    font-size: 20px;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+
+    &.--error {
+        border-color: red;
+    }
+
+    &:focus {
+        border: 2px solid blue;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./App.css"
-import { Button, NavItem, NavList } from "./lib"
+import { Button, Input, NavItem, NavList } from "./lib"
 import { Modal } from "./lib"
 
 const DivComponent = () => {
@@ -8,14 +8,19 @@ const DivComponent = () => {
 }
 
 function App() {
-  const [showModal, setShowModal] = useState<boolean>(false)
+  const [value, setValue] = useState<string>()
+  const [errors, setErrors] = useState<{ password: string | undefined }>()
 
-  function handleClick() {
-    console.log("eloooo")
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    setValue(e.currentTarget.value)
+    setErrors({ ...errors, password: undefined })
   }
 
-  function closeModal() {
-    setShowModal(false)
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!value) {
+      setErrors({ ...errors, password: "this field is invalid" })
+    }
   }
 
   return (
@@ -28,13 +33,15 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <NavList>
-        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
-        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
-        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
-        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
-        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
-      </NavList>
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          name="login"
+          value={value}
+          handleChange={handleChange}
+          error={errors?.password}
+        />
+      </form>
     </div>
   )
 }
@@ -42,7 +49,15 @@ function App() {
 export default App
 
 {
-  /* <Button
+  /* 
+  <NavList>
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+        <NavItem text="dsadsadasdsa" handleClick={handleClick} />
+      </NavList>
+  <Button
         id="btn1"
         label={"send dudes"}
         type="button"
