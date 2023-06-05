@@ -14,6 +14,10 @@ function App() {
     setShowModal(true)
   }
 
+  function closeModal() {
+    setShowModal(false)
+  }
+
   return (
     <div
       style={{
@@ -30,7 +34,7 @@ function App() {
         type="button"
         handleClick={handleClick}
       />
-      {showModal && <Modal />}
+      {showModal && <Modal closeModal={closeModal} title="" />}
     </div>
   )
 }
