@@ -8,6 +8,8 @@ export type InputProps = {
   value?: string
   handleChange: (e: React.FormEvent<HTMLInputElement>) => void
   error?: string
+  success?: boolean
   successIcon?: ReactElement
   errorIcon?: ReactElement
+  styles?: {}
 }

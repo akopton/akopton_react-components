@@ -10,24 +10,29 @@ const Input = ({
   value,
   handleChange,
   error,
+  styles,
+  success,
+  successIcon,
 }: InputProps) => {
-  // const [inputError, setInputError] = useState<string | undefined>(error)
-
   return (
     <div className="input-field">
       <div className="input-field__input-wrapper">
         <input
           id={id}
-          className={error ? "input --error" : "input"}
+          className={
+            error ? "input --error" : success ? "input --success" : "input"
+          }
           type={type}
           name={name}
           placeholder={placeholder}
           value={value}
           onChange={handleChange}
+          style={styles}
         />
         <label htmlFor={name} className="floating-placeholder">
           {placeholder}
         </label>
+        {success && <div className="success-icon">{successIcon}</div>}
       </div>
       {error ? (
         <span className="input-field__error error-line">{error}</span>

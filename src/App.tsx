@@ -10,10 +10,12 @@ function App() {
     login?: string
     password?: string
   }>()
+  const [loginConfirmed, setLoginConfirmed] = useState<boolean>(false)
 
   const handlePassword = (e: React.FormEvent<HTMLInputElement>) => {
     setPassword(e.currentTarget.value)
     setErrors({ ...errors, password: undefined })
+    setLoginConfirmed(false)
   }
 
   const handleLogin = (e: React.FormEvent<HTMLInputElement>) => {
@@ -23,13 +25,23 @@ function App() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+
     if (!password)
       setErrors((prevErrors) => ({
         ...prevErrors,
         password: "Password is required",
       }))
+
+    if (password && password !== "admin")
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password: "Password is invalid",
+      }))
+
     if (!login)
       setErrors((prevErrors) => ({ ...prevErrors, login: "Login is required" }))
+
+    if (password && password === "admin") setLoginConfirmed(true)
   }
 
   return (
@@ -42,11 +54,7 @@ function App() {
         justifyContent: "center",
       }}
     >
-      <form
-        onSubmit={handleSubmit}
-        autoComplete="off"
-        style={{ display: "flex", flexDirection: "column", gap: "50px" }}
-      >
+      <form onSubmit={handleSubmit} autoComplete="off">
         <Input
           id="login"
           type="text"
@@ -64,6 +72,7 @@ function App() {
           value={password}
           handleChange={handlePassword}
           error={errors?.password}
+          success={loginConfirmed}
         />
         <input type="submit" onClick={handleSubmit} />
       </form>
