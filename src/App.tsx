@@ -23,6 +23,8 @@ function App() {
         data={dropdownData}
         onSelect={handleSelect}
         selectedItem={dropdownSelectedItem}
+        placeholder="Wybierz z listy..."
+        expandIcon={<div>v</div>}
       />
     </div>
   )
