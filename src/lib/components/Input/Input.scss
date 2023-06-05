@@ -1,18 +1,79 @@
 input {
     all: unset;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 12s;
+}
 
-.input {
-    font-size: 20px;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 8px;
 
-    &.--error {
-        border-color: red;
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+    position: relative;
+
+    &__input-wrapper {
+        position: relative;
+
+        .input {
+            font-size: 20px;
+            padding: 10px 10px;
+            border: 2px solid black;
+            border-radius: 8px;
+        
+            &.--error {
+                border-color: red;
+            }
+        
+            &:focus {
+                border-color: blue;
+            }
+
+            &:focus ~ .floating-placeholder,
+            &:not(:placeholder-shown) ~ .floating-placeholder {
+                transform: translateY(-12px) translateX(-2px);
+                transition: all .3s ease;
+                opacity: 1;
+            }
+
+            &:placeholder-shown ~ label {
+                transition: all .3s ease;
+            }
+
+            &:focus::placeholder {
+                transition: all .3s ease;
+                opacity: 0;
+            }
+
+            &::placeholder {
+                transition: all .3s ease;
+            }
+        }
+
+        .floating-placeholder {
+            position: absolute;
+            left: 10px;
+            padding: 0 2px;
+            background-color: white;
+            font-size: 16px;
+            opacity: 0;
+            order: 1;
+        }
     }
 
-    &:focus {
-        border: 2px solid blue;
+    &__error {
+        color: red;
+        font-size: 20px;
+    }
+    
+    .error-line {
+        margin-top: 5px;
+        display: block;
+        height: 20px;
+        line-height: 20px;
     }
 }

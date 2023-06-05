@@ -2,15 +2,86 @@ input {
   all: unset;
 }
 
-.input {
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-transition: background-color 5000s ease-in-out 12s;
+  transition: background-color 5000s ease-in-out 12s;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+  position: relative;
+}
+.input-field__input-wrapper {
+  position: relative;
+}
+.input-field__input-wrapper .input {
   font-size: 20px;
-  padding: 20px;
+  padding: 10px 10px;
   border: 2px solid black;
   border-radius: 8px;
 }
-.input.--error {
+.input-field__input-wrapper .input.--error {
   border-color: red;
 }
-.input:focus {
-  border: 2px solid blue;
+.input-field__input-wrapper .input:focus {
+  border-color: blue;
+}
+.input-field__input-wrapper .input:not(:-moz-placeholder-shown) ~ .floating-placeholder {
+  transform: translateY(-12px) translateX(-2px);
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.input-field__input-wrapper .input:focus ~ .floating-placeholder, .input-field__input-wrapper .input:not(:placeholder-shown) ~ .floating-placeholder {
+  transform: translateY(-12px) translateX(-2px);
+  transition: all 0.3s ease;
+  opacity: 1;
+}
+.input-field__input-wrapper .input:-moz-placeholder-shown ~ label {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.input-field__input-wrapper .input:placeholder-shown ~ label {
+  transition: all 0.3s ease;
+}
+.input-field__input-wrapper .input:focus::-moz-placeholder {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.input-field__input-wrapper .input:focus::placeholder {
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+.input-field__input-wrapper .input::-moz-placeholder {
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.input-field__input-wrapper .input::placeholder {
+  transition: all 0.3s ease;
+}
+.input-field__input-wrapper .floating-placeholder {
+  position: absolute;
+  left: 10px;
+  padding: 0 2px;
+  background-color: white;
+  font-size: 16px;
+  opacity: 0;
+  order: 1;
+}
+.input-field__error {
+  color: red;
+  font-size: 20px;
+}
+.input-field .error-line {
+  margin-top: 5px;
+  display: block;
+  height: 20px;
+  line-height: 20px;
 }/*# sourceMappingURL=Input.css.map */
