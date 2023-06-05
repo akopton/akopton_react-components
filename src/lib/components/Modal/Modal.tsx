@@ -1,15 +1,8 @@
 import { ReactElement } from "react"
 import "./Modal.css"
+import { ModalProps } from "../../types/ModalProps"
 
-const Modal = ({
-  children,
-  closeModal,
-  title,
-}: {
-  children?: ReactElement[]
-  closeModal: () => void
-  title?: string
-}) => {
+const Modal = ({ children, closeModal, title }: ModalProps) => {
   return (
     <div className="blur">
       <div className="modal-window">
