@@ -1,12 +1,9 @@
-.dropdown {
-  position: absolute;
-  top: 0;
-  left: 0;
+.dropdown-wrapper .dropdown {
   border: 2px solid red;
   border-radius: 8px;
   max-height: 300px;
 }
-.dropdown__selected-item {
+.dropdown-wrapper .dropdown__selected-item {
   padding: 10px 15px;
   min-width: 180px;
   font-size: 18px;
@@ -15,10 +12,10 @@
   justify-content: space-between;
   cursor: pointer;
 }
-.dropdown__selected-item .icon.--opened {
+.dropdown-wrapper .dropdown__selected-item .icon.--opened {
   transform: rotate(180deg);
 }
-.dropdown__list {
+.dropdown-wrapper .dropdown__list {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -26,15 +23,15 @@
   gap: 10px;
   padding-top: 0;
 }
-.dropdown__list .item {
+.dropdown-wrapper .dropdown__list .item {
   padding: 5px 5px;
   position: relative;
   cursor: pointer;
 }
-.dropdown__list .item.--selected {
+.dropdown-wrapper .dropdown__list .item.--selected {
   color: red;
 }
-.dropdown__list .item::before {
+.dropdown-wrapper .dropdown__list .item::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -45,7 +42,7 @@
   background: red;
   transition: 0.3s ease;
 }
-.dropdown__list .item:hover::before {
+.dropdown-wrapper .dropdown__list .item:hover::before {
   height: 100%;
   transition: 0.3s ease;
 }/*# sourceMappingURL=Dropdown.css.map */

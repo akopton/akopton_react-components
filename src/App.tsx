@@ -4,66 +4,49 @@ import { Button, Dropdown, Form, Input, NavItem, NavList } from "./lib"
 import { Modal } from "./lib"
 
 function App() {
-  const dropdownData = ["element 1", "element 2", "element 3", "element 4"]
+  const dropdownData = [
+    "element 1",
+    "element 2",
+    "element 3",
+    "element 4",
+    "element 5",
+  ]
   const [dropdownSelectedItem, setDropdownSelectedItem] = useState<string>("")
-  const [showModal, setShowModal] = useState<boolean>(false)
-  const [login, setLogin] = useState<string>("")
-  const errors = {
-    login: "",
-    password: "",
-  }
-
-  const closeModal = () => {
-    setShowModal(false)
-  }
+  const objectArray = [
+    { name: "element 1" },
+    { name: "element 2" },
+    { name: "element 3" },
+    { name: "element 4" },
+  ]
 
   const handleSelect = (el: string) => {
     setDropdownSelectedItem(el)
   }
 
-  const handleSubmit = () => {}
-  const handleLogin = () => {}
+  const handleClick = () => {
+    objectArray.forEach((el) => {
+      if (el.name === dropdownSelectedItem) {
+        console.log("yes", el)
+      }
+    })
+  }
+
   return (
     <div
       style={{
-        height: "100vh",
-        width: "100vw",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <Button
-        type="button"
-        label="open modal"
-        handleClick={() => setShowModal(true)}
-      />
-      {showModal && (
-        <Modal closeModal={closeModal} title="Formularz">
-          <Form
-            onSubmit={handleSubmit}
-            submitBtnText={"Send"}
-            submitBtnPos="right"
-          >
-            <Input
-              id="login"
-              type="text"
-              name="login"
-              value={login}
-              handleChange={handleLogin}
-              placeholder="login"
-              error={errors?.login}
-            />
-          </Form>
-        </Modal>
-      )}
-      {/* <Dropdown
+      <Dropdown
         data={dropdownData}
         onSelect={handleSelect}
         selectedItem={dropdownSelectedItem}
         placeholder="Wybierz z listy..."
         expandIcon={<div>v</div>}
-      /> */}
+      />
+      <Button type="button" label={"wyślij"} handleClick={handleClick} />
     </div>
   )
 }
